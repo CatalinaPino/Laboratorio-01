@@ -4,63 +4,61 @@
 
 ## 1. Introducción 
 
-El experimento con el que se trabajará se realizó dentro del proyecto *BaSiGo* (Bausteine ​​für die Sicherheit von Großveranstaltungen). El proyecto fue financiado por el Ministerio Federal de Educación e Investigación (BMBF) dentro del programa “Investigación para la Seguridad Civil”.
+El presente laboratorio se realiza en base a la información obtenida del proyecto BaSiGo, que fue respaldado por el Ministerio Federal de Educación e Investigación (BMBF) en el programa "Investigación para la Seguridad Civil" donde se llevaron a cabo nueve carreras en las que se ajustó la cantidad de personas en un corredor y  los anchos (b_1 y b_2) de estos pasillos.
 
-Este se llevó a cabo en nueve carreras en las que se varió la densidad de personas dentro del corredor cambiando los anchos (b_1 y b_2). Para acortar el tiempo de preparación entre las carreras individuales, los peatones fueron enviados alternativamente desde ambos lados por la geometría construida simétricamente.
+Los archivos "UNI_CORR_500_01" y "UNI_CORR_500_07" obtenidos del proyecto, registran  las coordenadas de movimiento de los usuarios en los ejes X, Y y Z.
+El enfoque se centra en identificar patrones, rutas y tendencias en cómo las multitudes se mueven en espacios limitados, un analisis fundamental para mejorar la seguridad en eventos masivos y situaciones similares. Además, se compara cómo diferentes bibliotecas afectan el uso de la unidad de procesamiento central (CPU) al ejecutar los códigos correspondientes.
+
 
 ### 1.1 Justificación 
 
-El estudio de los flujos peatonales en ciertos espacios urbanos presenta una alta importancia debido a que permite optimizar el diseño y planificación de infraestructuras, además:
-- Tener espacios públicos eficientes (metros, por ejemplo) mejora considerablemente el flujo peatonal, permitiendo brindar una mayor satisfacción y mejor experiencia a los usuarios.
-- Estos estudios permiten también mejorar la seguridad de los peatones, identificando los puntos de conflicto y como se mueven las personas.
+Este experimento brinda una oportunidad concreta para enfrentar desafíos genuinos y complejos relacionados con la congestión en áreas restringidas y altamente transitadas.
+A través del análisis de datos, se puede explorar la movilidad, comprender las dinámicas de congestión y localizar puntos críticos en sistemas, fortaleciendo así la capacidad de analizar y diseñar soluciones a partir de las herramientas proporcionadas por la ciencia de datos. Estos esfuerzos no solo optimizan la planificación de infraestructuras en ciertos espacios urbanos, sino que también tienen un impacto en la mejora de la seguridad de los peatones al identificar puntos de conflicto y patrones de movimiento.
+ 
+Además, esta comprensión detallada de los flujos peatonales tiene una consecuencia directa en la mejora sustancial de la eficiencia de espacios públicos clave, como por ejemplo las estaciones de metro. Esta mejora se traduce en una experiencia más fluida y satisfactoria para los usuarios.
 
 
 ### 1.3 Objetivos 
 
-**Objetivo General**
+*Objetivo General*
 
-Procesar la base de datos para obtener la frecuencia por la que pasa un peatón por cada píxel y evaluar las opciones de lograrlo.
+Analizar flujos peatonales en áreas congestionadas mediante dos métodos de obtención de matrices de calor para comprender el impacto en el rendimiento computacional al variar las librerías.
 
-**Objetivos específicos**
+*Objetivos específicos*
 
 1. Explorar y entender la base de datos.
 2. Limpiar y extraer los datos necesarios, en este caso las coordenadas a utilizar.
 3. Manipular los datos filtrados según lo solicitado (transformar de metros a pixeles).
 4. Confeccionar mapas de calor para un análisis más interactivo.
+5. Comparar los tiempos de procesamiento al usar diferentes librerias
 
 ## 2. Marco teórico
 
 A continuación, se presentan una serie de herramientas, estructuras y librerías que se utilizarán a lo largo del laboratorio:
 
-*Conda*: Se usará para la gestión de paquetes, ya sea buscar, instalar, actualizar o eliminarlos. A su vez permitirá crear y gestionar entornos virtuales que contendrá las bibliotecas necesarias para un proyecto en específico.
+Conda: Se usará para la gestión de paquetes, ya sea buscar, instalar, actualizar o eliminarlos. A su vez permitirá crear y gestionar entornos virtuales que contendrá las bibliotecas necesarias para un proyecto en específico.
 
-*Ipython*: Permitirá que la programación mediante Python se vuelva más eficiente e interactiva, utilizando diversas bibliotecas de análisis de datos.
+Ipython: Permitirá que la programación mediante Python se vuelva más eficiente e interactiva, utilizando diversas bibliotecas de análisis de datos.
 
-*Visual Studio*: Es el entorno de desarrollo integrado (IDE) a usar que permitirá editar, depurar y compilar códigos para su posterior análisis.
+Visual Studio: Es el entorno de desarrollo integrado (IDE) a usar que permitirá editar, depurar y compilar códigos para su posterior análisis.
 
-*Numpy*: Esta librería proporciona distintas operaciones numéricas, matriciales y arreglos multidimensionales. Además, permite realizar arreglos más eficientes que las listas tradicionales de Python.
+Numpy: Esta librería proporciona distintas operaciones numéricas, matriciales y arreglos multidimensionales. Además, permite realizar arreglos más eficientes que las listas tradicionales de Python.
 
-*Matplotlib*: Esta librería entrega múltiples códigos para realizar distintos tipos de gráficos, en este laboratorio se utilizara el gráfico de calor.
+Matplotlib: Esta librería entrega múltiples códigos para realizar distintos tipos de gráficos, en este laboratorio se utilizara el gráfico de calor.
 
-*Pandas*: Es una librería que permitirá cargar, manipular y visualizar datos secuenciales, como series temporales y micromatrices.
+Pandas: Se utilizará la librería Pandas para la manipulación y análisis de datos.Esta herramienta permitirá transformar la información en un dataframe, lo que permitirá una mayor eficiencia en la limpieza, filtrado y transformación de datos antes de su visualización y análisis.
 
 ## 3. Materiales y métodos
 
-Para la confección de este laboratorio se utilizarán dos dataset identificados como "UNI_CORR_500_01.txt" y "UNI_CORR_500_07.txt", los cuales son archivos de texto que contienen cinco columnas, las primeras dos corresponden a identificadores y las tres restantes son las coordenadas (X, Y y Z) las cuales serán procesadas. Estos datos (coordenadas) corresponden a datos de tipo float. Para este archivo las medidas correspondientes a b_1 y b_2 para los archivos de texto 1 y 2 es de 1,00 y 5,00 metros, y 5,00 y 3,00 metros respectivamente.
+Para la realización del laboratorio, se emplean dos conjuntos de datos identificados como "UNI_CORR_500_01.txt" y "UNI_CORR_500_07.txt". Cada archivo de texto contiene cinco columnas, las dos primeras corresponden a identificadores y las tres restantes representan las coordenadas (X, Y y Z) que serán procesadas. Estas coordenadas son valores de tipo float. En este contexto, la medida b_1 es 1,00 metro y la medida b_2 es 5,00 metros.
 
-Para lograr identificar con qué frecuencia pasan las personas por ciertos puntos del corredor se manipularán ambos dataset y así obtener lo necesario para generar una visualización para su posterior análisis
+Con el propósito de identificar la frecuencia de pasos de personas en puntos específicos del corredor, se procedió a manipular los conjuntos de datos. Esto permitió obtener los elementos necesarios para generar visualizaciones relevantes en el análisis posterior. Es esencial resaltar que se desarrollaron dos códigos diferentes, cada uno dedicado a calcular mapas de calor a partir de los archivos "UNI_CORR_500_01.txt" y "UNI_CORR_500_07.txt". Aunque ambos códigos cumplen la misma tarea, cada uno se enfoca en un archivo distinto, es decir, el código archivo_1 procesa "uni_corr_500_01" y el código archivo_2 se encarga de "uni_corr_500_07".
 
-En primer lugar (Para la ejecución con ciclo *for*), se realiza una exploración y extracción de los datos requeridos del dataset. Se realizan una serie de códigos para obtener la línea de las coordenadas X, Y y Z según lo especificado. Todo lo anterior utilizando listas y ciclos *for*.
+Para ejecutar este análisis, se crearon dos códigos separados dentro de cada archivo de datos. El primer programa empleó diccionarios, ciclos for y listas para extraer coordenadas, identificar las más repetidas y convertirlas de metros a píxeles mediante cálculos de pendiente,en el proceso, se emplearon diccionarios para relacionar coordenadas con sus respectivas repeticiones, eliminando la necesidad de gestionar listas separadas y simplificando el código. Posteriormente, se utilizó la biblioteca Matplotlib para generar los mapas de calor.
 
-Luego, con los datos extraídos en la parte anterior, se calcularán las frecuencias de las coordenadas X, Y, y ambas en conjunto, con el objetivo de identificar los puntos más repetitivos y en cuantas oportunidades. Se realizará usando principalmente diccionarios y ciclos *for*.
+En el segundo enfoque, se empleó la librería Pandas para importar, manipular y visualizar la frecuencia de peatones en un histograma bidimensional. Los archivos de texto se cargaron utilizando pd.read_csv(), omitiendo las primeras 3 filas para crear un DataFrame. Luego, plt.hist2d() se utilizó para generar un histograma 2D, seguido de plt.show() para presentar los resultados.
 
-A continuación, se procede a realizar el cambio de las coordenadas de metro a pixeles. Para efecto de esto se calculará la pendiente según X e Y teniendo en consideración las coordenadas ya conocidas de metros y pixeles. Teniendo las pendientes es posible obtener los pixeles de una coordenada en metros cualquiera. Para esto se utilizaran funciones y listas.
-
-Finalmente se ingresaran los valores de las coordenadas en un diccionario para posteriormente calcular las frecuencias de cada una, de esta manera se podrá identificar el conjunto de coordenadas que más se repite. Como se mencionó se usaran diccionarios, ciclos *for* y listas.
-
-También se realizará mediante el uso de Pandas, estableciendo el dataset como dataframe. De esta manera se evitan todos los pasos anteriores del ciclo *for*, ya que se podrán extraer las columnas requeridas para el mapa de color sin extender el código.
-
-Para ambos casos en cada dataset utilizado se elaborarán mapas de color para analizar el flujo de los peatones en los corredores y evaluar el codigo mas óptimo.
+Ambos códigos fueron encapsulados en funciones para evaluar los tiempos de procesamiento y comparar los enfoques para la obtención de+ los mapas de calor.
 
 ## 4. Resultados obtenidos
 
@@ -73,30 +71,20 @@ Luego de realizar, ejecutar y corroborar que el código funciona correctamente s
 | Programa 1 (Archivo_2.py)|  6.3635852336883545  |   120.4296875   |
 | Programa 2 (Archivo_2.py)|  0.5664870738983154  |   132.65625   |
 
-El 'Archivo_1' corresponde a los códigos con ciclo *for* y Pandas utilizando el dataset "UNI_CORR_500_01.txt" y para el 'Archivo_2' de igual manera se tienen los códigos con ciclo *for* y Pandas pero en este caso para el data set "UNI_CORR_500_07.txt".
+La comparación del rendimiento entre los programas 1 y 2 para la obtención de mapas de calor muestra que el programa 2, usando Pandas, es más eficiente en términos de tiempo. En el archivo 1, el programa 2 es cinco veces más rápido (0.16s vs. 0.81s), mientras que en el archivo 2, la diferencia es aún mayor (0.57s vs. 6.36s). Sin embargo, el programa 2 tiende a usar un poco más de memoria, aunque la diferencia no es significativa en la mayoría de los casos (alrededor de 130 MB frente a 120 MB). 
+además es importante destacar que el archivo "UNI_CORR_500_07.txt" parece ser más exigente en términos de tiempo de ejecución para ambos programas, ya que en ambos casos el tiempo es significativamente mayor que en el archivo "UNI_CORR_500_01.txt".
 
-Analizando los tiempos de ejecución se observa que los correspondientes a los programas 1 (ciclo *for*) para ambos dataset son más altos que los programas 2 (Pandas), principalmente por los extensos códigos. Aún asi, la memoria uilizada por los programas 2 es mayor a la utilizada por los programas 1, esto se debe a que se requieren mas librerías.
-
-A continuación, se presenta el mapa de color (Archivo_1) obtenido con las frecuencias en pixeles de las coordenadas X e Y del dataset, permitiendo identificar los pixeles que más se repiten. Este mapa es obtenido con ambos códigos.
 
 <img src="images/Cmap_1.png" width="420">
-
-Teniendo en consideración que en centro derecho se encontraba una persona parada, se explica porque se separa el flujo de derecha a izquierda, para luego expandirse por el resto del corredor.
-
-Tambien se presenta el mapa de color correspondiente al 'Archivo_2' mediante ambos codigos. En este caso el mapa se ve mas uniforme, donde (de izquierda a derecha) se aprecia el recorrido de los peatones desde una entrada amplia a una salida más estrecha.
-
 <img src="images/Cmap_2.png" width="420">
 
 ## 5. Conclusiones
+Durante el desarrolo de este laboratorio se destaca la eficacia de la extracción de elementos de una lista por su índice en comparación con la creación de nuevas listas utilizando ciclos for. Esta práctica se ha demostrado más rápida y práctica, evitando códigos extensos y reduciendo el tiempo de procesamiento.
 
-Con la confección de este laboratorio se pudieron esclarecer ciertas cosas para el código con cliclo *for* como por ejemplo, es más práctico y rápido la extracción de caracteres de una lista de acuerdo al índice que crear listas nuevas usando ciclo *for*, de esta manera se evitan una serie de códigos extensos y que el tiempo de procesamiento aumente.
+Asimismo,  se destaca la utilidad y eficiencia del uso de diccionarios, pues permitieron establecer relaciones entre coordenadas y sus repeticiones sin necesidad de crear listas separadas, lo que simplifica el código y optimiza su desempeño.
 
-También se corrobora la eficiencia del uso de los diccionarios, que permite relacionar las coordenadas con sus respectivas repeticiones, sin necesidad de crear dos lista por separado. Además se puede apreciar que, a diferencia de usar un ciclo *for*, el uso de funciones permite realizar los cálculos necesarios sin necesidad de aumentar la memoria en uso, ya que mientras no se llame a esta, no ocupa memoria.
+Es interesante observar que, a pesar de obtener la misma gráfica final, la elección entre distintos métodos de programación tiene un impacto en la eficiencia de tiempo y memoria. La opción de utilizar funciones se resalta como ventajosa, ya que realiza cálculos necesarios sin aumentar la memoria en uso hasta que la función se llama. Este enfoque permite lograr resultados con menos impacto en la memoria tanto en el programa 1 como en el programa 2 , ahora,  utilizar módulos para encapsular estas funciones favorece aun más a generar una estructura de código más organizada y mantenible. 
 
-De igual manera al realizar el código usando la librería Pandas se comprueba que dimensión de los códigos se reducen considerablemente al igual que el tiempo de ejecución del programa a pesar de tener que sacrificar un poco más de memoria. Con dataframe se evitan utilizar múltiples ciclos *for*, listas y diccionarios para extraer columnas y formar la matriz de frecuencia.
+En general los resultados indican que, la biblioteca Pandas presenta un mejor rendimiento en términos de tiempo de ejecución, lo cual se vuelve especialmente valioso para el análisis de conjuntos de datos más extensos y en términos de eficiencia computacional, sin embargo puede requerir de más memoria.
 
-
-
-
-
-
+Se puede destacar la importancia de la semántica y sintaxis en la programación, y cómo decisiones sobre las técnicas a utilizar pueden influir en el rendimiento y recursos requeridos.
