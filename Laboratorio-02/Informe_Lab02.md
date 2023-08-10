@@ -78,6 +78,7 @@ En relación a las gráficas obtenidas en el primer archivo (archivo_1.py), los 
 
 En relación a las gráficas generadas por el archivo_2.py, se percibe que el recorrido de las personas forma una única vía o fila. Además, en comparación con el mapa del otro archivo, los recorridos parecen ser mucho más uniformes y ordenados, ocupando un mayor porcentaje del espacio de los pasillos. No obstante, también se aprecia una tendencia a estrechar la trayectoria hacia el final del pasillo si observamos de izquierda a derecha. Probablemente esto tenga relación a como variaron la cantidad de personas que pasaban por el pasillo , es decir el flujo y la densidad del transito en estos espacios.
 
+
 <img src="images/Cmap_1.png" width="420">
 <img src="images/Cmap_2.png" width="420">
 
