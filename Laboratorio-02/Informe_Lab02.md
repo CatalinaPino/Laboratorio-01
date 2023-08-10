@@ -74,12 +74,15 @@ Luego de realizar, ejecutar y corroborar que el código funciona correctamente s
 La comparación del rendimiento entre los programas 1 y 2 para la obtención de mapas de calor muestra que el programa 2, usando Pandas, es más eficiente en términos de tiempo. En el archivo 1, el programa 2 es cinco veces más rápido (0.16s vs. 0.81s), mientras que en el archivo 2, la diferencia es aún mayor (0.57s vs. 6.36s). Sin embargo, el programa 2 tiende a usar un poco más de memoria, aunque la diferencia no es significativa en la mayoría de los casos (alrededor de 130 MB frente a 120 MB). 
 además es importante destacar que el archivo "UNI_CORR_500_07.txt" parece ser más exigente en términos de tiempo de ejecución para ambos programas, ya que en ambos casos el tiempo es significativamente mayor que en el archivo "UNI_CORR_500_01.txt".
 
+En relación a las gráficas obtenidas en el primer archivo (archivo_1.py), los tonos más claros indican una mayor afluencia de personas. Los píxeles amarillos denotan zonas densas en términos de población que transita por esas coordenadas, mientras que los espacios en morado representan áreas vacías o con escaso tránsito. Como se puede observar, se generan dos filas que inicialmente, de izquierda a derecha, parecen fusionadas, pero al llegar a las coordenadas (500, 250) aproximadamente, comienzan a bifurcarse.
+
+En relación a las gráficas generadas por el archivo_2.py, se percibe que el recorrido de las personas forma una única vía o fila. Además, en comparación con el mapa del otro archivo, los recorridos parecen ser mucho más uniformes y ordenados, ocupando un mayor porcentaje del espacio de los pasillos. No obstante, también se aprecia una tendencia a estrechar la trayectoria hacia el final del pasillo si observamos de izquierda a derecha. Probablemente esto tenga relación a como variaron la cantidad de personas que pasaban por el pasillo , es decir el flujo y la densidad del transito en estos espacios.
 
 <img src="images/Cmap_1.png" width="420">
 <img src="images/Cmap_2.png" width="420">
 
 ## 5. Conclusiones
-Durante el desarrolo de este laboratorio se destaca la eficacia de la extracción de elementos de una lista por su índice en comparación con la creación de nuevas listas utilizando ciclos for. Esta práctica se ha demostrado más rápida y práctica, evitando códigos extensos y reduciendo el tiempo de procesamiento.
+Durante el desarrollo de este laboratorio se destaca la eficacia de la extracción de elementos de una lista por su índice en comparación con la creación de nuevas listas utilizando ciclos for. Esta práctica se ha demostrado más rápida y práctica, evitando códigos extensos y reduciendo el tiempo de procesamiento.
 
 Asimismo,  se destaca la utilidad y eficiencia del uso de diccionarios, pues permitieron establecer relaciones entre coordenadas y sus repeticiones sin necesidad de crear listas separadas, lo que simplifica el código y optimiza su desempeño.
 
