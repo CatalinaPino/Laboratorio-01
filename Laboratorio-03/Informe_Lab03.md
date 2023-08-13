@@ -1,35 +1,36 @@
 ![Logo UCN](images/60x60-ucn-negro.png)
-# Laboratorio 01: Cálculo de frecuencia peatonal 
-
+# Laboratorio 03: Cálculo de frecuencia peatonal 
 
 ## 1. Introducción 
 
-El presente laboratorio se realiza en base a la información obtenida del proyecto BaSiGo, que fue respaldado por el Ministerio Federal de Educación e Investigación (BMBF) en el programa "Investigación para la Seguridad Civil" donde se llevaron a cabo nueve carreras en las que se ajustó la cantidad de personas en un corredor y  los anchos (b_1 y b_2) de estos pasillos.
+El presente laboratorio se fundamenta en los datos adquiridos del proyecto BaSiGo, respaldado por el Ministerio Federal de Educación e Investigación (BMBF) en el programa de "Investigación para la Seguridad Civil", donde se llevaron a cabo nueve carreras con ajustes en la cantidad de individuos en corredores y los anchos (b_1 y b_2) de los pasillos.
 
-Los archivos "UNI_CORR_500_01" y "UNI_CORR_500_07" obtenidos del proyecto, registran  las coordenadas de movimiento de los usuarios en los ejes X, Y y Z.
-El enfoque se centra en identificar patrones, rutas y tendencias en cómo las multitudes se mueven en espacios limitados, un analisis fundamental para mejorar la seguridad en eventos masivos y situaciones similares. Además, se compara cómo diferentes bibliotecas afectan el uso de la unidad de procesamiento central (CPU) al ejecutar los códigos correspondientes.
+Los archivos "UNI_CORR_500_01" y "UNI_CORR_500_07", obtenidos del mencionado proyecto, documentan las coordenadas de movimiento en los ejes X, Y y Z de los usuarios. El enfoque de la investigación se centraliza en la identificación de patrones, rutas y tendencias en la movilidad de multitudes en entornos limitados, siendo un análisis crucial para la mejora de la seguridad en eventos masivos. 
+
+Asimismo, se procederá a visualizar las velocidades de los peatones mediante la creación de histogramas y gráficos de caja, lo cual permitirá una comprensión más exhaustiva de las variaciones en las velocidades en diversas situaciones. Además, se llevará a cabo una evaluación del uso de la unidad de procesamiento central (CPU) al ejecutar los códigos pertinentes.
+
 
 ### 1.1 Justificación 
 
-Este experimento brinda una oportunidad concreta para enfrentar desafíos genuinos y complejos relacionados con la congestión en áreas restringidas y altamente transitadas.
-A través del análisis de datos, se puede explorar la movilidad, comprender las dinámicas de congestión y localizar puntos críticos en sistemas, fortaleciendo así la capacidad de analizar y diseñar soluciones a partir de las herramientas proporcionadas por la ciencia de datos. Estos esfuerzos no solo optimizan la planificación de infraestructuras en ciertos espacios urbanos, sino que también tienen un impacto en la mejora de la seguridad de los peatones al identificar puntos de conflicto y patrones de movimiento.
+Este experimento brinda una oportunidad concreta para enfrentar desafíos relacionados con la congestión en áreas cerradas y altamente transitadas.
+A través del análisis de datos, se puede comprender las dinámicas de congestión y localizar puntos críticos en sistemas, fortaleciendo así la capacidad de analizar y diseñar soluciones a partir de las herramientas proporcionadas por la ciencia de datos. Estos esfuerzos no solo optimizan la planificación de infraestructuras en ciertos espacios urbanos, sino que también tienen un impacto en la mejora de la seguridad de los peatones al identificar puntos de conflicto y patrones de movimiento.
  
-Además, esta comprensión detallada de los flujos peatonales tiene una consecuencia directa en la mejora sustancial de la eficiencia de espacios públicos clave, como por ejemplo las estaciones de metro. Esta mejora se traduce en una experiencia más fluida y satisfactoria para los usuarios.
+Además, esta comprensión detallada de los flujos peatonales tiene una consecuencia directa en el manejo de espacios públicos claves, como por ejemplo las estaciones de metro. Esta mejora se traduce en una experiencia más fluida y satisfactoria para los usuarios, además al analizar la velocidad de los peatones, se obtiene una perspectiva cuantitativa de cómo se desplazan las personas en áreas cerradas lo que ayuda a identificar posibles cuellos de botella o áreas de congestión.
 
 
 ### 1.3 Objetivos 
 
 *Objetivo General*
 
-Analizar flujos peatonales en áreas congestionadas mediante dos métodos de obtención de matrices de calor para comprender el impacto en el rendimiento computacional al variar las librerías.
+Calcular las velocidades de los peatones en distintos espacios, y crear representaciones gráficas que faciliten la comprensión y análisis de los resultados obtenidos.
 
 *Objetivos específicos*
 
-1. Explorar y entender la base de datos.
-2. Limpiar y extraer los datos necesarios, en este caso las coordenadas a utilizar.
-3. Manipular los datos filtrados según lo solicitado (transformar de metros a pixeles).
-4. Confeccionar mapas de calor para un análisis más interactivo.
-5. Comparar los tiempos de procesamiento al usar diferentes librerias
+1. Realizar un análisis exhaustivo de la base de datos para comprender su estructura y contenido.
+2. Agrupar los registros de movimiento por peatón para facilitar el procesamiento y análisis individual.
+3. Calcular las distancias recorridas por cada peatón entre fotogramas consecutivos y determinar el tiempo necesario para cada desplazamiento
+4. Determinar las velocidades de desplazamiento de los peatones mediante el cálculo de la relación entre distancia y tiempo.
+5. Generar gráficos visuales que representen de manera efectiva los patrones de comportamiento de las velocidades de los peatones.
 
 ## 2. Marco teórico
 
@@ -43,21 +44,22 @@ Visual Studio: Es el entorno de desarrollo integrado (IDE) a usar que permitirá
 
 Numpy: Esta librería proporciona distintas operaciones numéricas, matriciales y arreglos multidimensionales. Además, permite realizar arreglos más eficientes que las listas tradicionales de Python.
 
-Matplotlib: Esta librería entrega múltiples códigos para realizar distintos tipos de gráficos, en este laboratorio se utilizara el gráfico de calor.
+Matplotlib: Se emplea la librería Matplotlib para crear histogramas que representan la distribución de las velocidades promedio en cada instancia. Además, se generaron gráficos de caja para visualizar la dispersión y la presencia de valores atípicos en las velocidades de los peatones.
 
-Pandas: Se utilizará la librería Pandas para la manipulación y análisis de datos.Esta herramienta permitirá transformar la información en un dataframe, lo que permitirá una mayor eficiencia en la limpieza, filtrado y transformación de datos antes de su visualización y análisis.
+Pandas: Se utilizará la librería Pandas para la manipulación y análisis de datos.Esta herramienta permitirá transformar la información en un dataframe y agrupar la información en base a una columna, lo que permitirá una mayor eficiencia en la limpieza, filtrado y transformación de datos antes de su visualización y análisis. 
 
 ## 3. Materiales y métodos
 
-Para la realización del laboratorio, se emplean dos conjuntos de datos identificados como "UNI_CORR_500_01.txt" y "UNI_CORR_500_07.txt". Cada archivo de texto contiene cinco columnas, las dos primeras corresponden a identificadores y las tres restantes representan las coordenadas (X, Y y Z) que serán procesadas. Estas coordenadas son valores de tipo float. En este contexto, la medida b_1 es 1,00 metro y la medida b_2 es 5,00 metros.
+Para la realización del laboratorio, se emplean dos conjuntos de datos identificados como "UNI_CORR_500_01.txt" y "UNI_CORR_500_07.txt". Cada archivo de texto contiene cinco columnas, las dos primeras corresponden a identificadores y las tres restantes representan las coordenadas (X, Y y Z) que serán procesadas. Estas coordenadas son valores de tipo float.
 
-Con el propósito de identificar la frecuencia de pasos de personas en puntos específicos del corredor, se procedió a manipular los conjuntos de datos. Esto permitió obtener los elementos necesarios para generar visualizaciones relevantes en el análisis posterior. Es esencial resaltar que se desarrollaron dos códigos diferentes, cada uno dedicado a calcular mapas de calor a partir de los archivos "UNI_CORR_500_01.txt" y "UNI_CORR_500_07.txt". Aunque ambos códigos cumplen la misma tarea, cada uno se enfoca en un archivo distinto, es decir, el código archivo_1 procesa "UNI_CORR_500_01" y el código archivo_2 se encarga de "UNI_CORR_500_07".
+En el proceso de análisis, se importaron bibliotecas esenciales: Pandas para el manejo de datos, NumPy para cálculos numéricos, Matplotlib para la visualización de gráficos y la función sqrt (raíz cuadrada) del módulo math. Se comenzó por definir una función que calcula la velocidad de los peatones. Esta función determinó la distancia recorrida mediante la fórmula euclidiana, considerando las diferencias entre las coordenadas actuales y las anteriores. Además, se empleó la columna "Frame" para calcular el intervalo de tiempo basado en una frecuencia de 25 cuadros por segundo (fps). Posteriormente, se dividió la distancia entre el tiempo para obtener las velocidades en cada intervalo.
 
-Para ejecutar este análisis, se crearon dos códigos separados dentro de cada archivo de datos. El primer programa empleó diccionarios, ciclos for y listas para extraer coordenadas, identificar las más repetidas y convertirlas de metros a píxeles mediante cálculos de pendiente,en el proceso, se emplearon diccionarios para relacionar coordenadas con sus respectivas repeticiones, eliminando la necesidad de gestionar listas separadas y simplificando el código. Posteriormente, se utilizó la biblioteca Matplotlib para generar los mapas de calor.
+A continuación, se procedió a cargar los datos y crear un DataFrame que se agrupó según la columna "# PersID". La función de cálculo de velocidad se aplicó utilizando el método "apply", lo que dio lugar a un nuevo DataFrame con velocidades calculadas para cada peatón en distintos momentos.
 
-En el segundo enfoque, se empleó la librería Pandas para importar, manipular y visualizar la frecuencia de peatones en un histograma bidimensional. Los archivos de texto se cargaron utilizando pd.read_csv(), omitiendo las primeras 3 filas para crear un DataFrame. Luego, plt.hist2d() se utilizó para generar un histograma 2D, seguido de plt.show() para presentar los resultados.
+Seguidamente, se calculó el promedio de velocidad para cada identificador en el DataFrame. Este enfoque proporcionó una visión global de las tendencias de velocidad entre los peatones, y se utilizó para generar histogramas que representan la distribución de los promedios de velocidad.
 
-Ambos códigos fueron encapsulados en funciones para evaluar los tiempos de procesamiento y comparar los enfoques para la obtención de+ los mapas de calor.
+Finalmente, se generaron gráficos de caja y bigotes para 10 peatones, los cuales resumieron la información de todas sus velocidades a lo largo del tiempo. Para este paso, se eliminaron los valores NaN (sin referencia previa) a fin de evitar inconvenientes. Estos gráficos se generaron para ambos conjuntos de datos, completando así el análisis de manera integral.
+
 
 ## 4. Resultados obtenidos
 
@@ -68,13 +70,13 @@ Luego de realizar, ejecutar y corroborar que el código funciona correctamente s
 | Programa Uno (Lab03.py)|0.7631428241729736 |       116.921875   |
 | Programa Dos (Lab03.py)|2.2850022315979004   |       127.98046875   |
 
-La comparación del rendimiento entre los programas 1 y 2 para la obtención de mapas de calor muestra que el programa 2, usando Pandas, es más eficiente en términos de tiempo. En el archivo 1, el programa 2 es cinco veces más rápido (0.16s vs. 0.81s), mientras que en el archivo 2, la diferencia es aún mayor (0.57s vs. 6.36s). Sin embargo, el programa 2 tiende a usar un poco más de memoria, aunque la diferencia no es significativa en la mayoría de los casos (alrededor de 130 MB frente a 120 MB). 
-además es importante destacar que el archivo "UNI_CORR_500_07.txt" parece ser más exigente en términos de tiempo de ejecución para ambos programas, ya que en ambos casos el tiempo es significativamente mayor que en el archivo "UNI_CORR_500_01.txt".
+El análisis de las tablas resalta que el Programa Uno ("UNI_CORR_500_01.txt)ofrece un mejor rendimiento en términos de tiempo de ejecución y uso de memoria en comparación con el Programa Dos("UNI_CORR_500_07.txt), a pesar de que ambos programas realizan las mismas operaciones pero en ejemplos de conjuntos de datos diferentes. Estos resultados sugieren que el enfoque del Programa Uno podría ser más óptimo en términos de eficiencia y rendimiento para aplicaciones similares en el futuro, es decir en aplicaciones donde hay menos peatones.
 
-En relación a las gráficas obtenidas en el primer archivo (archivo_1.py), los tonos más claros indican una mayor afluencia de personas. Los píxeles amarillos denotan zonas densas en términos de población que transita por esas coordenadas, mientras que los espacios en morado representan áreas vacías o con escaso tránsito. Como se puede observar, se generan dos filas que inicialmente, de izquierda a derecha, parecen fusionadas, pero al llegar a las coordenadas (500, 250) aproximadamente, comienzan a bifurcarse.
+En cuanto a las representaciones gráficas, el primer histograma derivado del archivo "UNI_CORR_500_01.txt" muestra similitudes marcadas con una distribución normal, sugiriendo una posible correspondencia con este tipo de distribución. Por otro lado, el segundo archivo presenta una forma que se aleja de la normalidad, sugiriendo posibles distribuciones como exponencial o geométrica. Será necesario realizar ajustes para determinar la distribución más adecuada a los datos.
 
-En relación a las gráficas generadas por el archivo_2.py, se percibe que el recorrido de las personas forma una única vía o fila. Además, en comparación con el mapa del otro archivo, los recorridos parecen ser mucho más uniformes y ordenados, ocupando un mayor porcentaje del espacio de los pasillos. No obstante, también se aprecia una tendencia a estrechar la trayectoria hacia el final del pasillo si observamos de izquierda a derecha. Probablemente esto tenga relación a como variaron la cantidad de personas que pasaban por el pasillo , es decir el flujo, la densidad del transito en estos espacios y las anchuras de las entradas y salidas.
+En relación a las velocidades promedio de peatones, en el programa 1 se observa una concentración en el rango de 1.2 a 1.8 m/s. En contraste, en el programa 2, prevalecen velocidades más bajas, entre 0.2 y 0.4 m/s. Esto podría deberse a restricciones de espacio en el segundo entorno, causando congestión y limitando la circulación independiente de las personas.
 
+En las gráficas de cajas y bigotes, el programa 1 muestra más valores atípicos, posiblemente debido a obstáculos que generan cambios abruptos en la velocidad. Las medianas oscilan entre 1.3 y 1.8 m/s, con variaciones en las cajas pero sin diferencias significativas. En el programa 2, las cajas son más homogéneas, reforzando la idea de congestión y similitud en velocidades. Las medias rondan los 1.5 m/s y las cajas son más cortas que en el programa 1. Es posible que estas diferencias se relacionen con la dinámica y el entorno de cada archivo.
 
 <img src="images/Histograma_01.png" width="400">
 
@@ -88,15 +90,12 @@ En relación a las gráficas generadas por el archivo_2.py, se percibe que el re
 
 ## 5. Conclusiones
 
-Durante el desarrollo de este laboratorio se destaca la eficacia de la extracción de elementos de una lista por su índice en comparación con la creación de nuevas listas utilizando ciclos for. Esta práctica se ha demostrado más rápida y práctica, evitando códigos extensos y reduciendo el tiempo de procesamiento.
+El análisis efectuado demuestra la importancia de considerar las particularidades del entorno al interpretar los datos de velocidad de peatones. A su vez, se ha enfatizado la utilidad de las herramientas analíticas y de visualización para comprender los patrones de comportamiento en contextos específicos. 
+La programación, el análisis de datos y la visualización gráfica nos ha dado ideas importantes que se pueden usar en muchas situaciones diferentes. Por ejemplo, estas ideas pueden ser útiles al organizar cómo se diseñan lugares o cómo se controla la cantidad de personas que pasan por un lugar. También pueden ser útiles para pensar en cómo manejar el tráfico o cómo hacer que las cosas sean más seguras en diferentes situaciones.
 
-Asimismo,  se destaca la utilidad y eficiencia del uso de diccionarios, pues permitieron establecer relaciones entre coordenadas y sus repeticiones sin necesidad de crear listas separadas, lo que simplifica el código y optimiza su desempeño.
+Respecto al análisis de las distribuciones de velocidad realizado, se observa que el primer conjunto de datos presenta una distribución similar a una normal, mientras que el segundo muestra una forma que se desvía de la normalidad, sugiriendo posibles distribuciones exponenciales o geométricas. También se notan diferencias en las velocidades promedio de los peatones en ambos programas, lo que podría indicar influencias del entorno en el comportamiento de los peatones.
 
-Es interesante observar que, a pesar de obtener la misma gráfica final, la elección entre distintos métodos de programación tiene un impacto en la eficiencia de tiempo y memoria. La opción de utilizar funciones se resalta como ventajosa, ya que realiza cálculos necesarios sin aumentar la memoria en uso hasta que la función se llama. Este enfoque permite lograr resultados con menos impacto en la memoria tanto en el programa 1 como en el programa 2 , ahora,  utilizar módulos para encapsular estas funciones favorece aun más a generar una estructura de código más organizada y mantenible. 
-
-En general los resultados indican que, la biblioteca Pandas presenta un mejor rendimiento en términos de tiempo de ejecución, lo cual se vuelve especialmente valioso para el análisis de conjuntos de datos más extensos y en términos de eficiencia computacional, sin embargo puede requerir de más memoria. Teniendo en consideración que el uso excesivo de ciclos for también puede provocar un mayor uso de memoria.
-
-Se puede destacar la importancia de la semántica y sintaxis en la programación, y cómo decisiones sobre las técnicas a utilizar pueden influir en el rendimiento y recursos requeridos.
+Es destacable la eficacia de la combinación de dataframes con las funciones de diversas bibliotecas utilizadas, así como la capacidad de crear gráficos mediante Matplotlib, lo que permite realizar análisis tanto concisos como exhaustivos.
 
 
 
