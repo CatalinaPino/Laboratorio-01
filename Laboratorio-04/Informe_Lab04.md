@@ -80,13 +80,7 @@ En las gráficas de cajas y bigotes, el programa 1 muestra más valores atípico
 
 <img src="images/Histograma_01.png" width="400">
 
-<img src="images/Grafico_cajas_01.png" width="400">
-
-<img src="images/Histograma_07.png" width="400">
-
-<img src="images/Grafico_cajas_07.png" width="400">
-
-
+<img src="images/Grafico_dispersion_sk.png" width="400">
 
 ## 5. Conclusiones
 
