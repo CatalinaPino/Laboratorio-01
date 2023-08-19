@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import streamlit as st
 
 
-data_frame_01 = pd.read_csv('dataset/UNI_CORR_500_01.txt', delimiter="\t", skiprows=3)
+data_frame_01 = pd.read_csv('Laboratorio-04/dataset/UNI_CORR_500_01.txt', delimiter="\t", skiprows=3)
 #print(data_frame_01.tail())
 
 def calculo_velocidad(grupo):
