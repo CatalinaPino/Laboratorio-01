@@ -4,8 +4,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import streamlit as st
 
-archivo_txt_01 = 'UNI_CORR_500_01.txt'
-data_frame_01 = pd.read_csv(archivo_txt_01, delimiter="\t", skiprows=3)
+
+data_frame_01 = pd.read_csv('dataset/UNI_CORR_500_01.txt', delimiter="\t", skiprows=3)
 #print(data_frame_01.tail())
 
 def calculo_velocidad(grupo):
