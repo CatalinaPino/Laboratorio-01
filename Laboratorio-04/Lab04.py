@@ -59,6 +59,8 @@ def mi_programa_1():
     st.write("""
     # Laboratorio 04 Programación Científica
     ## Cálculo Sk y graficos de archivo UNI_CORR_500_01.txt
+    ###En la siguiente sección se presentan los graficos obtenidos luego de realizar los calculos correspondientes 
+             a las velocidades y valores Sk de cada peaton en cada frame.
     """)
     st.write("""
     ## Histograma de la frecuencia de la velocidad promedio
