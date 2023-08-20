@@ -3,5 +3,3 @@ scipy
 numpy
 matplotlib
 streamlit
-time
-psutil
