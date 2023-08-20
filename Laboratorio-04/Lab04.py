@@ -29,13 +29,15 @@ promedio_por_ID_01 = df_vel_01.groupby('# PersID')['velocidad'].mean()
 #print(promedio_por_ID_01)
 
 st.write("""
-# Programación Científica Laboratorio 04: Frecuencia Peatonal
+# Programación Científica Laboratorio 04: *Frecuencia Peatonal*
 ## Cálculo Sk y graficos de archivo UNI_CORR_500_01.txt
-En la siguiente sección se presentan los graficos obtenidos luego de realizar los calculos correspondientes 
-            a las velocidades y valores Sk de cada peaton en cada frame.
+En la siguiente sección se presentan los gráficos obtenidos luego de realizar los cálculos correspondientes 
+            a las velocidades y valores Sk de cada peatón en cada frame.
 """)
 st.write("""
 ## Histograma de la frecuencia de la velocidad promedio
+En el presentre gráfico se muestran la cantidad de repeticiones de los promedios de velocidades calculadas 
+         por cada peaton, observando se cuenta con una distribución normal.
 """)
 
 # Crear un histograma
@@ -107,6 +109,8 @@ df_vel_01.to_csv(f"velocidades_01.txt", index=False, sep='\t')
 
 st.write("""
 ## Gráfico de dispersión Sk vs Velocidad
+Para obtener este gráfico se cálcula, en primera instancia, el valor del Sk para cada peatón en su 
+         respectivo frame y luego se confecciona el gráfico utilizando las velocidades calculadas anteriormente.
 """)
 
 # Crear el gráfico de dispersión
