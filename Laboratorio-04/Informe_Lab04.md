@@ -15,7 +15,7 @@ A través del análisis de datos, se puede comprender las dinámicas de congesti
  
 Un aspecto crucial de esta investigación radica en la capacidad de calcular los parámetros del modelo de ajuste de Weidmann. Estos parámetros no solo brindan una comprensión más profunda de las interacciones y comportamientos de los peatones en entornos diversos, sino que también son esenciales para el éxito y la precisión del modelo en sí. Poder determinar con precisión los valores de estos parámetros permite una calibración más precisa del modelo, lo que a su vez potencia su capacidad para prever y representar los patrones de movimiento con mayor fidelidad. Esto, a su vez, refuerza la confiabilidad de las soluciones y recomendaciones derivadas del modelo, consolidando así su utilidad en la toma de decisiones y la planificación efectiva en la gestión del tráfico peatonal en áreas congestionadas.
 
-### 1.3 Objetivos 
+### 1.2 Objetivos 
 
 *Objetivo General*
 
