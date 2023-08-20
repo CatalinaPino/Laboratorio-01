@@ -37,7 +37,7 @@ En la siguiente sección se presentan los gráficos obtenidos luego de realizar 
 st.write("""
 ## Histograma de la frecuencia de la velocidad promedio
 En el presentre gráfico se muestran la cantidad de repeticiones de los promedios de velocidades calculadas 
-         por cada peaton, observando se cuenta con una distribución normal.
+         por cada peaton, observando que cuenta con una distribución normal.
 """)
 
 # Crear un histograma
