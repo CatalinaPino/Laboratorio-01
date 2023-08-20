@@ -148,5 +148,5 @@ def mi_programa_1():
 
 if __name__ == "__main__":
     print('|' + '*'*85 + '|')
-    print('Los recursos utilizados por el programa 1 son con el data set "UNI_CORR_500_01.txt": ')
+    print('Los recursos utilizados por el programa 1 con el data set "UNI_CORR_500_01.txt" son: ')
     get_resource_info(mi_programa_1)
