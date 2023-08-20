@@ -1,5 +1,5 @@
 ![Logo UCN](images/60x60-ucn-negro.png)
-# Laboratorio 04: Cálculo de frecuencia peatonal 
+# Laboratorio 04: Cálculo de sk y vecinos más cercanos
 
 ## 1. Introducción 
 
