@@ -30,7 +30,7 @@ promedio_por_ID_01 = df_vel_01.groupby('# PersID')['velocidad'].mean()
 
 st.write("""
 # Programación Científica Laboratorio 04: *Frecuencia Peatonal*
-## Cálculo Sk y graficos de archivo UNI_CORR_500_01.txt
+## Cálculo Sk y gráficos de archivo UNI_CORR_500_01.txt
 En la siguiente sección se presentan los gráficos obtenidos luego de realizar los cálculos correspondientes 
             a las velocidades y valores Sk de cada peatón en cada frame.
 """)
